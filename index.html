@@ -75,6 +75,27 @@
         .suggestions div:hover {
             background: #f0f0f0;
         }
+        .cta-section {
+            text-align: center;
+            margin: 40px 0;
+            padding: 30px;
+            background: #ff9800;
+            color: white;
+            border-radius: 10px;
+        }
+        .cta-button {
+            background: #f57c00;
+            color: white;
+            padding: 15px 25px;
+            font-size: 18px;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+            transition: background 0.3s;
+        }
+        .cta-button:hover {
+            background: #e65100;
+        }
         @media (max-width: 768px) {
             .search-bar input {
                 width: 80%;
@@ -155,6 +176,11 @@
             <input type="text" id="search-input" placeholder="Search nearby contractors..." onkeyup="showSuggestions()">
             <div id="suggestions" class="suggestions"></div>
             <button onclick="searchContractors()">Search</button>
+        </div>
+
+        <div class="cta-section">
+            <h2>Need Help Fast? Get in Touch Now!</h2>
+            <a href="tel:+1234567890" class="cta-button">📞 Call Us Now</a>
         </div>
     </div>
 </body>
