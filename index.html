@@ -108,6 +108,15 @@
             }
         }
     </style>
+    <script>
+        function searchContractors() {
+            let query = document.getElementById("search-input").value;
+            if (query) {
+                let searchUrl = `https://www.google.com/search?q=${query}+contractor+near+me`;
+                window.open(searchUrl, "_blank");
+            }
+        }
+    </script>
 </head>
 <body>
     <header>Some1Help Online - Helping People First</header>
@@ -117,8 +126,8 @@
         </div>
         <h2 style="text-align: center; color: #0056b3;">Find a Trusted Handyman Near You</h2>
         <div class="search-bar">
-            <input type="text" placeholder="Search handyman services...">
-            <button>Search</button>
+            <input type="text" id="search-input" placeholder="Search nearby contractors...">
+            <button onclick="searchContractors()">Search</button>
         </div>
         
         <h3 style="text-align: center;">Our Top Services</h3>
