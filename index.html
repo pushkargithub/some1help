@@ -75,6 +75,21 @@
         .suggestions div:hover {
             background: #f0f0f0;
         }
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin: 40px 0;
+        }
+        .feature-box {
+            background: white;
+            padding: 25px;
+            margin: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 45%;
+            text-align: center;
+        }
         .cta-section {
             text-align: center;
             margin: 40px 0;
@@ -103,81 +118,36 @@
             .suggestions {
                 width: 80%;
             }
+            .feature-box {
+                width: 100%;
+            }
         }
     </style>
-    <script>
-        const services = [
-            "Plumbing Repairs",
-            "Electrical Work",
-            "Furniture Assembly",
-            "Home Cleaning",
-            "Painting Services",
-            "HVAC Repair",
-            "Roofing Services",
-            "Appliance Repair",
-            "Landscaping",
-            "Pest Control"
-        ];
-        
-        function showSuggestions() {
-            let input = document.getElementById("search-input").value.toLowerCase();
-            let suggestionsBox = document.getElementById("suggestions");
-            suggestionsBox.innerHTML = "";
-            
-            if (input.length > 0) {
-                let filteredServices = services.filter(service => 
-                    service.toLowerCase().startsWith(input) || 
-                    service.toLowerCase().includes(input)
-                );
-                if (filteredServices.length > 0) {
-                    filteredServices.forEach(service => {
-                        let div = document.createElement("div");
-                        div.innerText = service;
-                        div.onclick = function() {
-                            document.getElementById("search-input").value = service;
-                            suggestionsBox.style.display = "none";
-                        };
-                        suggestionsBox.appendChild(div);
-                    });
-                    suggestionsBox.style.display = "block";
-                } else {
-                    suggestionsBox.style.display = "none";
-                }
-            } else {
-                suggestionsBox.style.display = "none";
-            }
-        }
-        
-        function hideSuggestions(event) {
-            if (!event.target.closest(".search-bar")) {
-                document.getElementById("suggestions").style.display = "none";
-            }
-        }
-        
-        function searchContractors() {
-            let query = document.getElementById("search-input").value.trim();
-            if (query) {
-                let encodedQuery = encodeURIComponent(query + " contractor near me");
-                let searchUrl = `https://www.google.com/search?q=${encodedQuery}`;
-                window.open(searchUrl, "_blank");
-            } else {
-                alert("Please enter a service type to search for nearby contractors.");
-            }
-        }
-        
-        document.addEventListener("click", hideSuggestions);
-    </script>
 </head>
 <body>
     <header>Some1Help Online - Helping People First</header>
     <div class="container">
         <h2 style="text-align: center; color: #0056b3;">Find a Trusted Handyman Near You</h2>
+        <h4 style="text-align: center; color: #333;">Quick and reliable services at your fingertips</h4>
         <div class="search-bar">
-            <input type="text" id="search-input" placeholder="Search nearby contractors..." onkeyup="showSuggestions()">
-            <div id="suggestions" class="suggestions"></div>
+            <input type="text" id="search-input" placeholder="Search nearby contractors...">
             <button onclick="searchContractors()">Search</button>
         </div>
-
+        
+        <h3 style="text-align: center;">Our Top Services</h3>
+        <div class="features">
+            <div class="feature-box"><h4>🔧 Plumbing Repairs</h4><p>Expert plumbers for all your needs.</p></div>
+            <div class="feature-box"><h4>💡 Electrical Work</h4><p>Certified electricians for safe repairs.</p></div>
+            <div class="feature-box"><h4>🛠 Furniture Assembly</h4><p>Professional help for your assembly tasks.</p></div>
+            <div class="feature-box"><h4>🏠 Home Cleaning</h4><p>Book trusted cleaners for your home.</p></div>
+            <div class="feature-box"><h4>🎨 Painting Services</h4><p>Give your home a fresh new look.</p></div>
+            <div class="feature-box"><h4>❄️ HVAC Repair</h4><p>Heating and cooling experts at your service.</p></div>
+            <div class="feature-box"><h4>🔨 Roofing Services</h4><p>Reliable roof repairs and installations.</p></div>
+            <div class="feature-box"><h4>🔧 Appliance Repair</h4><p>Fix your appliances with trusted technicians.</p></div>
+            <div class="feature-box"><h4>🌿 Landscaping</h4><p>Transform your outdoor space.</p></div>
+            <div class="feature-box"><h4>🐜 Pest Control</h4><p>Get rid of unwanted pests safely.</p></div>
+        </div>
+        
         <div class="cta-section">
             <h2>Need Help Fast? Get in Touch Now!</h2>
             <a href="tel:+1234567890" class="cta-button">📞 Call Us Now</a>
