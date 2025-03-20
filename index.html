@@ -105,18 +105,28 @@
             
             if (input.length > 0) {
                 let filteredServices = services.filter(service => service.toLowerCase().includes(input));
-                filteredServices.forEach(service => {
-                    let div = document.createElement("div");
-                    div.innerText = service;
-                    div.onclick = function() {
-                        document.getElementById("search-input").value = service;
-                        suggestionsBox.style.display = "none";
-                    };
-                    suggestionsBox.appendChild(div);
-                });
-                suggestionsBox.style.display = "block";
+                if (filteredServices.length > 0) {
+                    filteredServices.forEach(service => {
+                        let div = document.createElement("div");
+                        div.innerText = service;
+                        div.onclick = function() {
+                            document.getElementById("search-input").value = service;
+                            suggestionsBox.style.display = "none";
+                        };
+                        suggestionsBox.appendChild(div);
+                    });
+                    suggestionsBox.style.display = "block";
+                } else {
+                    suggestionsBox.style.display = "none";
+                }
             } else {
                 suggestionsBox.style.display = "none";
+            }
+        }
+        
+        function hideSuggestions(event) {
+            if (!event.target.closest(".search-bar")) {
+                document.getElementById("suggestions").style.display = "none";
             }
         }
         
@@ -130,6 +140,8 @@
                 alert("Please enter a service type to search for nearby contractors.");
             }
         }
+        
+        document.addEventListener("click", hideSuggestions);
     </script>
 </head>
 <body>
