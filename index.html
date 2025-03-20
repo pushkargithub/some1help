@@ -55,13 +55,13 @@
         .search-bar button:hover {
             background: #004494;
         }
-        .features, .handymen {
+        .features {
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
             margin: 40px 0;
         }
-        .feature-box, .handyman-box {
+        .feature-box {
             background: white;
             padding: 25px;
             margin: 15px;
@@ -95,22 +95,16 @@
             .search-bar input {
                 width: 80%;
             }
-            .feature-box, .handyman-box {
+            .feature-box {
                 width: 100%;
             }
         }
     </style>
     <script>
         function forwardCall() {
-            const handymen = [
-                { name: "saeid", phone: "+12068410655" },
-                { name: "Mingo", phone: "+12063912351" },
-                { name: "Michael", phone: "+14802053017" },
-                { name: "Lee", phone: "+2068883582" }
-            ];
-            
-            const selectedHandyman = handymen[Math.floor(Math.random() * handymen.length)];
-            window.location.href = `tel:${selectedHandyman.phone}`;
+            const handymanNumbers = ["+1234567891", "+1234567892", "+1234567893", "+1234567894"];
+            const selectedNumber = handymanNumbers[Math.floor(Math.random() * handymanNumbers.length)];
+            window.location.href = `tel:${selectedNumber}`;
         }
     </script>
 </head>
@@ -130,14 +124,6 @@
             <div class="feature-box"><h4>💡 Electrical Work</h4><p>Certified electricians for safe repairs.</p></div>
             <div class="feature-box"><h4>🛠 Furniture Assembly</h4><p>Professional help for your assembly tasks.</p></div>
             <div class="feature-box"><h4>🏠 Home Cleaning</h4><p>Book trusted cleaners for your home.</p></div>
-        </div>
-        
-        <h3 style="text-align: center;">Featured Handymen</h3>
-        <div class="handymen">
-            <div class="handyman-box"><h4>🔧 John Doe</h4><p>Specialist in plumbing and home repairs.</p><p>📞 Call: <a href="tel:+1234567891">+1 234-567-891</a></p></div>
-            <div class="handyman-box"><h4>💡 Mike Smith</h4><p>Expert electrician with 10+ years of experience.</p><p>📞 Call: <a href="tel:+1234567892">+1 234-567-892</a></p></div>
-            <div class="handyman-box"><h4>🛠 Robert Johnson</h4><p>Reliable furniture assembly and repairs.</p><p>📞 Call: <a href="tel:+1234567893">+1 234-567-893</a></p></div>
-            <div class="handyman-box"><h4>🏠 David Lee</h4><p>Home cleaning and painting specialist.</p><p>📞 Call: <a href="tel:+1234567894">+1 234-567-894</a></p></div>
         </div>
         
         <div class="cta-section">
