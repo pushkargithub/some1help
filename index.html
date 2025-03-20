@@ -28,92 +28,106 @@
         }
         .search-bar {
             display: flex;
-            justify-content: center;
+            flex-direction: column;
+            align-items: center;
             margin: 30px 0;
+            position: relative;
         }
         .search-bar input {
             width: 60%;
             padding: 14px;
             border: 2px solid #0056b3;
-            border-radius: 5px 0 0 5px;
+            border-radius: 5px;
             font-size: 16px;
+            outline: none;
         }
         .search-bar button {
             padding: 14px;
+            margin-top: 10px;
             background: #0056b3;
             color: white;
             border: none;
             cursor: pointer;
-            border-radius: 0 5px 5px 0;
-            font-size: 16px;
-        }
-        .features {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            margin: 40px 0;
-        }
-        .feature-box {
-            background: white;
-            padding: 25px;
-            margin: 15px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            width: 45%;
-            text-align: center;
-        }
-        .feature-box h4 {
-            color: #0056b3;
-        }
-        .cta-section {
-            text-align: center;
-            margin: 40px 0;
-            padding: 30px;
-            background: #ff9800;
-            color: white;
-            border-radius: 10px;
-        }
-        .cta-section h2 {
-            margin-bottom: 20px;
-        }
-        .cta-button {
-            background: #f57c00;
-            color: white;
-            padding: 15px 25px;
-            font-size: 18px;
-            text-decoration: none;
             border-radius: 5px;
-            display: inline-block;
+            font-size: 16px;
             transition: background 0.3s;
         }
-        .cta-button:hover {
-            background: #e65100;
+        .search-bar button:hover {
+            background: #004494;
         }
-        .mission-statement {
-            text-align: center;
-            margin: 40px 0;
-            padding: 20px;
-            background: #e3f2fd;
-            color: #0056b3;
-            border-radius: 10px;
-            font-size: 20px;
-            font-weight: bold;
+        .suggestions {
+            position: absolute;
+            top: 50px;
+            width: 60%;
+            background: white;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            display: none;
+            max-height: 200px;
+            overflow-y: auto;
+            z-index: 1000;
+        }
+        .suggestions div {
+            padding: 10px;
+            cursor: pointer;
+            border-bottom: 1px solid #ddd;
+        }
+        .suggestions div:hover {
+            background: #f0f0f0;
         }
         @media (max-width: 768px) {
-            .feature-box {
-                width: 100%;
-            }
             .search-bar input {
-                width: 70%;
+                width: 80%;
+            }
+            .suggestions {
+                width: 80%;
             }
         }
     </style>
     <script>
+        const services = [
+            "Plumbing Repairs",
+            "Electrical Work",
+            "Furniture Assembly",
+            "Home Cleaning",
+            "Painting Services",
+            "HVAC Repair",
+            "Roofing Services",
+            "Appliance Repair",
+            "Landscaping",
+            "Pest Control"
+        ];
+        
+        function showSuggestions() {
+            let input = document.getElementById("search-input").value.toLowerCase();
+            let suggestionsBox = document.getElementById("suggestions");
+            suggestionsBox.innerHTML = "";
+            
+            if (input.length > 0) {
+                let filteredServices = services.filter(service => service.toLowerCase().includes(input));
+                filteredServices.forEach(service => {
+                    let div = document.createElement("div");
+                    div.innerText = service;
+                    div.onclick = function() {
+                        document.getElementById("search-input").value = service;
+                        suggestionsBox.style.display = "none";
+                    };
+                    suggestionsBox.appendChild(div);
+                });
+                suggestionsBox.style.display = "block";
+            } else {
+                suggestionsBox.style.display = "none";
+            }
+        }
+        
         function searchContractors() {
-            let query = document.getElementById("search-input").value;
+            let query = document.getElementById("search-input").value.trim();
             if (query) {
-                let searchUrl = `https://www.google.com/search?q=${query}+contractor+near+me`;
+                let encodedQuery = encodeURIComponent(query + " contractor near me");
+                let searchUrl = `https://www.google.com/search?q=${encodedQuery}`;
                 window.open(searchUrl, "_blank");
+            } else {
+                alert("Please enter a service type to search for nearby contractors.");
             }
         }
     </script>
@@ -121,38 +135,11 @@
 <body>
     <header>Some1Help Online - Helping People First</header>
     <div class="container">
-        <div class="mission-statement">
-            Our mission is to connect people with trusted, reliable handymen to make life easier for everyone. We believe in quick, accessible, and dependable service for all.
-        </div>
         <h2 style="text-align: center; color: #0056b3;">Find a Trusted Handyman Near You</h2>
         <div class="search-bar">
-            <input type="text" id="search-input" placeholder="Search nearby contractors...">
+            <input type="text" id="search-input" placeholder="Search nearby contractors..." onkeyup="showSuggestions()">
+            <div id="suggestions" class="suggestions"></div>
             <button onclick="searchContractors()">Search</button>
-        </div>
-        
-        <h3 style="text-align: center;">Our Top Services</h3>
-        <div class="features">
-            <div class="feature-box">
-                <h4>🔧 Plumbing Repairs</h4>
-                <p>Expert plumbers for all your needs.</p>
-            </div>
-            <div class="feature-box">
-                <h4>💡 Electrical Work</h4>
-                <p>Certified electricians for safe repairs.</p>
-            </div>
-            <div class="feature-box">
-                <h4>🛠 Furniture Assembly</h4>
-                <p>Professional help for your assembly tasks.</p>
-            </div>
-            <div class="feature-box">
-                <h4>🏠 Home Cleaning</h4>
-                <p>Book trusted cleaners for your home.</p>
-            </div>
-        </div>
-        
-        <div class="cta-section">
-            <h2>Need Help Fast? Get in Touch Now!</h2>
-            <a href="tel:+14256473336" class="cta-button">📞 Call Us Now</a>
         </div>
     </div>
 </body>
