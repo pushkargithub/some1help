@@ -3,76 +3,95 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Some1Help Online</title>
+    <title>Some1Help Online - Find a Handyman</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f8f9fa;
-            text-align: center;
+            background-color: #f4f4f4;
+            color: #333;
         }
         header {
-            background: #007bff;
+            background: #0056b3;
             color: white;
-            padding: 15px;
-            font-size: 24px;
+            padding: 20px;
+            text-align: center;
+            font-size: 28px;
+            font-weight: bold;
         }
         .container {
-            margin: 50px auto;
             width: 90%;
-            max-width: 800px;
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
         }
         .search-bar {
             display: flex;
             justify-content: center;
-            margin: 20px 0;
+            margin: 30px 0;
         }
         .search-bar input {
             width: 60%;
-            padding: 12px;
-            border: 1px solid #ccc;
+            padding: 14px;
+            border: 2px solid #0056b3;
             border-radius: 5px 0 0 5px;
+            font-size: 16px;
         }
         .search-bar button {
-            padding: 12px;
-            background: #007bff;
+            padding: 14px;
+            background: #0056b3;
             color: white;
             border: none;
             cursor: pointer;
             border-radius: 0 5px 5px 0;
+            font-size: 16px;
         }
         .features {
             display: flex;
-            justify-content: space-around;
+            justify-content: space-between;
             flex-wrap: wrap;
-            margin: 20px 0;
+            margin: 40px 0;
         }
         .feature-box {
             background: white;
-            padding: 20px;
-            margin: 10px;
+            padding: 25px;
+            margin: 15px;
             border-radius: 10px;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             width: 45%;
+            text-align: center;
+        }
+        .feature-box h4 {
+            color: #0056b3;
+        }
+        .contact-form {
+            background: white;
+            padding: 30px;
+            margin: 40px auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
         }
         .contact-form input, .contact-form textarea {
             width: 100%;
             padding: 12px;
             margin: 10px 0;
-            border: 1px solid #ccc;
+            border: 2px solid #ccc;
             border-radius: 5px;
+            font-size: 16px;
         }
         .contact-form button {
-            padding: 12px;
-            background: #007bff;
+            padding: 14px;
+            background: #0056b3;
             color: white;
             border: none;
             cursor: pointer;
             border-radius: 5px;
+            font-size: 16px;
             width: 100%;
         }
-        @media (max-width: 600px) {
+        @media (max-width: 768px) {
             .feature-box {
                 width: 100%;
             }
@@ -85,38 +104,40 @@
 <body>
     <header>Some1Help Online</header>
     <div class="container">
-        <h2>Find a Handyman Near You</h2>
+        <h2 style="text-align: center; color: #0056b3;">Find a Trusted Handyman Near You</h2>
         <div class="search-bar">
-            <input type="text" placeholder="Search for handyman services...">
+            <input type="text" placeholder="Search handyman services...">
             <button>Search</button>
         </div>
         
-        <h3>Our Services</h3>
+        <h3 style="text-align: center;">Our Top Services</h3>
         <div class="features">
             <div class="feature-box">
-                <h4>Plumbing Repairs</h4>
-                <p>Get expert plumbers for quick fixes.</p>
+                <h4>🔧 Plumbing Repairs</h4>
+                <p>Expert plumbers for all your needs.</p>
             </div>
             <div class="feature-box">
-                <h4>Electrical Work</h4>
-                <p>Find certified electricians for any job.</p>
+                <h4>💡 Electrical Work</h4>
+                <p>Certified electricians for safe repairs.</p>
             </div>
             <div class="feature-box">
-                <h4>Furniture Assembly</h4>
-                <p>Let professionals handle your assembly tasks.</p>
+                <h4>🛠 Furniture Assembly</h4>
+                <p>Professional help for your assembly tasks.</p>
             </div>
             <div class="feature-box">
-                <h4>Home Cleaning</h4>
-                <p>Book trusted home cleaning services.</p>
+                <h4>🏠 Home Cleaning</h4>
+                <p>Book trusted cleaners for your home.</p>
             </div>
         </div>
         
-        <h3>Contact Us</h3>
+        <h3 style="text-align: center;">Contact Us</h3>
         <div class="contact-form">
-            <input type="text" placeholder="Your Name" required>
-            <input type="email" placeholder="Your Email" required>
-            <textarea placeholder="Your Message" rows="4" required></textarea>
-            <button>Send Message</button>
+            <form action="https://formsubmit.co/contact@some1help.online" method="POST">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <textarea name="message" placeholder="Your Message" rows="4" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
         </div>
     </div>
 </body>
