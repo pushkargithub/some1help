@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Some1Help Online - Find a Handyman</title>
+    <title>Some1Help Online - Helping People Find Trusted Handymen</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -65,36 +65,39 @@
         .feature-box h4 {
             color: #0056b3;
         }
-        .contact-form {
-            background: #f8f9fa;
+        .cta-section {
+            text-align: center;
+            margin: 40px 0;
             padding: 30px;
-            margin: 40px auto;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-            max-width: 600px;
-        }
-        .contact-form input, .contact-form textarea {
-            width: 100%;
-            padding: 12px;
-            margin: 10px 0;
-            border: 2px solid #6c757d;
-            border-radius: 5px;
-            font-size: 16px;
-            background-color: #ffffff;
-        }
-        .contact-form button {
-            padding: 14px;
-            background: #28a745;
+            background: #ff9800;
             color: white;
-            border: none;
-            cursor: pointer;
+            border-radius: 10px;
+        }
+        .cta-section h2 {
+            margin-bottom: 20px;
+        }
+        .cta-button {
+            background: #f57c00;
+            color: white;
+            padding: 15px 25px;
+            font-size: 18px;
+            text-decoration: none;
             border-radius: 5px;
-            font-size: 16px;
-            width: 100%;
+            display: inline-block;
             transition: background 0.3s;
         }
-        .contact-form button:hover {
-            background: #218838;
+        .cta-button:hover {
+            background: #e65100;
+        }
+        .mission-statement {
+            text-align: center;
+            margin: 40px 0;
+            padding: 20px;
+            background: #e3f2fd;
+            color: #0056b3;
+            border-radius: 10px;
+            font-size: 20px;
+            font-weight: bold;
         }
         @media (max-width: 768px) {
             .feature-box {
@@ -107,8 +110,11 @@
     </style>
 </head>
 <body>
-    <header>Some1Help Online</header>
+    <header>Some1Help Online - Helping People First</header>
     <div class="container">
+        <div class="mission-statement">
+            Our mission is to connect people with trusted, reliable handymen to make life easier for everyone. We believe in quick, accessible, and dependable service for all.
+        </div>
         <h2 style="text-align: center; color: #0056b3;">Find a Trusted Handyman Near You</h2>
         <div class="search-bar">
             <input type="text" placeholder="Search handyman services...">
@@ -135,14 +141,9 @@
             </div>
         </div>
         
-        <h3 style="text-align: center;">Contact Us</h3>
-        <div class="contact-form">
-            <form action="https://formsubmit.co/pshkrpnt@gmail.com" method="POST">
-                <input type="text" name="name" placeholder="Your Name" required>
-                <input type="email" name="email" placeholder="Your Email" required>
-                <textarea name="message" placeholder="Your Message" rows="4" required></textarea>
-                <button type="submit">Send Message</button>
-            </form>
+        <div class="cta-section">
+            <h2>Need Help Fast? Get in Touch Now!</h2>
+            <a href="tel:+14256473336" class="cta-button">📞 Call Us Now</a>
         </div>
     </div>
 </body>
