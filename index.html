@@ -96,9 +96,6 @@
         .contact-form button:hover {
             background: #218838;
         }
-        .contact-form button.submitted {
-            background: #007bff !important;
-        }
         @media (max-width: 768px) {
             .feature-box {
                 width: 100%;
@@ -108,17 +105,6 @@
             }
         }
     </style>
-    <script>
-        function changeButtonColor(event) {
-            event.preventDefault(); // Prevent actual submission for color change preview
-            var button = document.querySelector(".contact-form button");
-            button.classList.add("submitted");
-            button.innerText = "Message Sent!";
-            setTimeout(function() {
-                event.target.submit(); // Updated submit button color change functionality
-            }, 500); // Delay for visual effect
-        }
-    </script>
 </head>
 <body>
     <header>Some1Help Online</header>
@@ -151,7 +137,7 @@
         
         <h3 style="text-align: center;">Contact Us</h3>
         <div class="contact-form">
-            <form action="https://formsubmit.co/pshkrpnt@gmail.com" method="POST" onsubmit="changeButtonColor(event)">
+            <form action="https://formsubmit.co/pshkrpnt@gmail.com" method="POST">
                 <input type="text" name="name" placeholder="Your Name" required>
                 <input type="email" name="email" placeholder="Your Email" required>
                 <textarea name="message" placeholder="Your Message" rows="4" required></textarea>
