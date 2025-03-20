@@ -9,7 +9,7 @@
             font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            background-color: #eef2f3;
             color: #333;
         }
         header {
@@ -17,118 +17,88 @@
             color: white;
             padding: 20px;
             text-align: center;
-            font-size: 28px;
+            font-size: 32px;
             font-weight: bold;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
         }
         .container {
             width: 90%;
             max-width: 1200px;
             margin: auto;
-            padding: 20px;
+            padding: 40px 20px;
+            text-align: center;
         }
-        .search-bar {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin: 30px 0;
-            position: relative;
-        }
-        .search-bar input {
-            width: 60%;
-            padding: 14px;
-            border: 2px solid #0056b3;
-            border-radius: 5px;
-            font-size: 16px;
-            outline: none;
-        }
-        .search-bar button {
-            padding: 14px;
-            margin-top: 10px;
-            background: #0056b3;
-            color: white;
-            border: none;
-            cursor: pointer;
-            border-radius: 5px;
-            font-size: 16px;
-            transition: background 0.3s;
-        }
-        .search-bar button:hover {
-            background: #004494;
+        h2 {
+            color: #0056b3;
+            font-size: 28px;
         }
         .features {
             display: flex;
             flex-wrap: wrap;
-            justify-content: space-between;
+            justify-content: center;
+            gap: 20px;
             margin: 40px 0;
         }
         .feature-box {
             background: white;
-            padding: 25px;
-            margin: 15px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            width: 45%;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+            width: 300px;
             text-align: center;
+            transition: transform 0.3s ease-in-out;
+        }
+        .feature-box:hover {
+            transform: translateY(-5px);
+        }
+        .feature-box h4 {
+            color: #0056b3;
+            font-size: 20px;
+            margin-bottom: 10px;
         }
         .cta-section {
-            text-align: center;
-            margin: 40px 0;
-            padding: 30px;
-            background: #ff9800;
+            background: linear-gradient(90deg, #ff9800, #ff5722);
             color: white;
-            border-radius: 10px;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
         }
         .cta-button {
             background: #f57c00;
             color: white;
-            padding: 15px 25px;
-            font-size: 18px;
+            padding: 15px 30px;
+            font-size: 20px;
             text-decoration: none;
-            border-radius: 5px;
-            display: inline-block;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
             transition: background 0.3s;
         }
         .cta-button:hover {
             background: #e65100;
         }
         @media (max-width: 768px) {
-            .search-bar input {
-                width: 80%;
-            }
             .feature-box {
                 width: 100%;
             }
         }
     </style>
-    <script>
-        function forwardCall() {
-            const handymanNumbers = ["+1234567891", "+1234567892", "+1234567893", "+1234567894"];
-            const selectedNumber = handymanNumbers[Math.floor(Math.random() * handymanNumbers.length)];
-            window.location.href = `tel:${selectedNumber}`;
-        }
-    </script>
+    
 </head>
 <body>
     <header>Some1Help Online - Helping People First</header>
     <div class="container">
-        <h2 style="text-align: center; color: #0056b3;">Find a Trusted Handyman Near You</h2>
-        <h4 style="text-align: center; color: #333;">Quick and reliable services at your fingertips</h4>
-        <div class="search-bar">
-            <input type="text" id="search-input" placeholder="Search nearby contractors...">
-            <button onclick="searchContractors()">Search</button>
-        </div>
-        
-        <h3 style="text-align: center;">Our Top Services</h3>
+        <h2>Find a Trusted Handyman Near You</h2>
+        <h3>Our Top Services</h3>
         <div class="features">
             <div class="feature-box"><h4>🔧 Plumbing Repairs</h4><p>Expert plumbers for all your needs.</p></div>
             <div class="feature-box"><h4>💡 Electrical Work</h4><p>Certified electricians for safe repairs.</p></div>
             <div class="feature-box"><h4>🛠 Furniture Assembly</h4><p>Professional help for your assembly tasks.</p></div>
             <div class="feature-box"><h4>🏠 Home Cleaning</h4><p>Book trusted cleaners for your home.</p></div>
         </div>
-        
         <div class="cta-section">
             <h2>Need Help Fast? Get in Touch Now!</h2>
-            <button onclick="forwardCall()" class="cta-button">📞 Call Us Now</button>
+            <a href="https://messages.google.com/web/conversations/new" class="cta-button">💬 Message Us on Google</a>
         </div>
     </div>
 </body>
